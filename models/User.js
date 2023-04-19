@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+// const thoughtSchema = require('./Thought');    do we need this?
 
 const userSchema = new Schema(
     {
