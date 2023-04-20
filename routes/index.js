@@ -5,5 +5,5 @@ router.use((req, res) => {
     return res.send('Wrong route!');
 });
 
-module.exports = routers;
+module.exports = router;
 

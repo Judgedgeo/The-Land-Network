@@ -109,7 +109,7 @@ const thoughtController = {
         }
     },
 
-    asyncremoveReaction(req, res) {
+    async removeReaction(req, res) {
         try {
             constdbThoughtData = awaitThought.findOneAndUpdate(
                 { _id: req.params.thouthId },
