@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
+require('dotenv').config();
 
-
-
+const url =process.env()
 
 
 module.exports = mongoose.connection;

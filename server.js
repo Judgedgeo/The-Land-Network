@@ -14,6 +14,6 @@ app.use('/', routes);
 
 connection.once('open', () => {
   app.listen(PORT, () => {
-    console.log('Server listening on port 3001');
+    console.log('Server listening on: http://localhost:' + PORT);
   });
   });
