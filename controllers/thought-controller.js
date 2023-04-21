@@ -9,14 +9,14 @@ const thoughtController = {
             res.json(dbThoughtData);
         } catch (err) {
             console.log(err);
-            res.statu(500).json(err);
+            res.status(500).json(err);
         }
     },
 
 
-    async getSingleThought(req, resp) {
+    async getSingleThought(req, res) {
         try {
-            constdbThoughtData = await Thought.findOne({ _id: req.params.thoughtId });
+            const dbThoughtData = await Thought.findOne({ _id: req.params.thoughtId });
 
             if (!dbThoughtData) {
                 return res.status(404).json({ message: 'No thought with this id!' });
@@ -34,7 +34,7 @@ const thoughtController = {
             const dbThoughtData = await Thought.create(req.body);
 
             const dbUserData = await User.findOneAndUpdate(
-                { _id: req.body.userID },
+                { _id: req.body.userId },
                 { $push: { thoughts: dbThoughtData._id } },
                 { new: true }
             );
@@ -51,6 +51,8 @@ const thoughtController = {
     },
 
     async updateThought(req, res) {
+try {
+
         const dbThoughtData = await Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $set: req.body }, { runValidators: true, new: true });
 
         if (!dbThoughtData) {
@@ -58,14 +60,15 @@ const thoughtController = {
         }
 
         res.json(dbThoughtData);
-
+    } catch (err){
         console.log(err);
         res.status(500).json(err);
+    }
     },
 
     async deleteThought(req, res) {
         try {
-            constdbThoughtData = await Thought.findOneAndRemove({ _id: req.params.thoughtId })
+            const dbThoughtData = await Thought.findOneAndRemove({ _id: req.params.thoughtId })
 
             if (!dbThoughtData) {
                 return res.status(404).json({ message: 'No thought with this id!' });
@@ -78,7 +81,7 @@ const thoughtController = {
                 { new: true }
             );
 
-            if (!dbUsertData) {
+            if (!dbUserData) {
                 return res.status(404).json({ message: 'Thought created but no user with this id!' });
             }
 
