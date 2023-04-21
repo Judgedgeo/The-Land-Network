@@ -22,6 +22,7 @@ const userController = {
             const dbUserData = await User.findOne({ _id: req.params.userId })
                 .select('__V')
                 .populate('friends')
+                .populate('username')
                 .populate('thoughts');
 
             if (!dbUserData) {
@@ -108,7 +109,7 @@ const userController = {
         }
     },
 
-    // Remvoe a Friend
+    // Remove a Friend
 
     async removeFriend(req, res) {
         try {

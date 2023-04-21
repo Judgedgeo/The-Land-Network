@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose');
 
-// const dateFormat = require('../utils/dateFormat');
+const moment = require('moment')
+
 
 const reactionSchema = new Schema(
     {
@@ -20,7 +21,8 @@ const reactionSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-            get: timestamp => timestamp
+            // get: timestamp => timestamp
+            get: createdAtVal => moment(createdAtVal).format("MMM DD, YYYY [at] hh:mm a"),
         }
     },
     {
@@ -42,7 +44,8 @@ const thoughtSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-            get: timestamp => timestamp
+            // get: timestamp => timestamp
+            get: createdAtVal => moment(createdAtVal).format("MMM DD, YYYY [at] hh:mm a"),
         },
         username: {
             type: String,
