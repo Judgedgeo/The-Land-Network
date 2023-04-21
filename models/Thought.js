@@ -15,13 +15,12 @@ const reactionSchema = new Schema(
             maxlength: 280
         },
         username: {
-            type: String,
+            type: Schema.Types.ObjectId,
             required: true
         },
         createdAt: {
             type: Date,
             default: Date.now,
-            // get: timestamp => timestamp
             get: createdAtVal => moment(createdAtVal).format("MMM DD, YYYY [at] hh:mm a"),
         }
     },
@@ -44,7 +43,7 @@ const thoughtSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-            // get: timestamp => timestamp
+
             get: createdAtVal => moment(createdAtVal).format("MMM DD, YYYY [at] hh:mm a"),
         },
         username: {
