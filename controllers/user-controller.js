@@ -2,6 +2,8 @@ const { User, Thought } = require('../models');
 
 const userController = {
 
+    //Find Users
+
     async getUsers(req, res) {
         try {
             const dbUserData = await userController.find()
@@ -13,6 +15,8 @@ const userController = {
             res.status(500).json(err);
         }
     },
+
+    //Get a single User
 
     async getSingleUser(req, res) {
         try {
@@ -31,6 +35,8 @@ const userController = {
             res.status(500).json(err);
         }
     },
+
+//Createa User
 
     async createUser(req, res) {
         try {
@@ -66,6 +72,8 @@ const userController = {
         }
     },
 
+    //Delete a User
+
     async deleteUser(req, res) {
         try {
             const dbUserData = awaitUser.findOneAndDelete({ _id: req.params.userId })
@@ -83,6 +91,8 @@ const userController = {
         }
     },
 
+// add a Friend
+
     async addFriend(req, res) {
         try {
             const dbUserData = await User.findOneAndUpdate({ _id: req.params.userId }, { $addToSet: { friends: req.params.friendId } }, { new: true });
@@ -98,6 +108,8 @@ const userController = {
             res.status(500).json(err);
         }
     },
+
+// Remvoe a Friend
 
     async removeFriend(req, res) {
         try {
