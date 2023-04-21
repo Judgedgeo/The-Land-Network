@@ -96,7 +96,7 @@ try {
     async addReaction(req, res) {
         try {
             const dbThoughtData = await Thought.findOneAndUpdate(
-                { _id: req.params.thouthId },
+                { _id: req.params.thoughtId },
                 { $addToSet: { reactions: req.body } },
                 { runValidators: true, new: true }
             );
@@ -114,8 +114,8 @@ try {
 
     async removeReaction(req, res) {
         try {
-            constdbThoughtData = awaitThought.findOneAndUpdate(
-                { _id: req.params.thouthId },
+            const dbThoughtData = await Thought.findOneAndUpdate(
+                { _id: req.params.thoughtId },
                 { $pull: { reactions: { reactionId: req.params.reactionId } } },
                 { runValidators: true, new: true }
             );
