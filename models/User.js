@@ -17,7 +17,7 @@ const userSchema = new Schema(
       match: [/.+@.+\..+/, "Must match an email address!"],
     },
 
-    // refers to thgouth models and values for the id
+    // refers to thought models and values for the id
     thoughts: [{ type: Schema.Types.ObjectId, ref: "Thought" }],
 
 
