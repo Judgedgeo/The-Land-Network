@@ -20,7 +20,7 @@ Type `npm i` in the command line to install necessary dependencies.
 
 ## Video Walkthrough:
 ### Here is the video to walk you through the functioning of the App:
-### https://youtu.be/giCnKtXHndQ
+### https://youtu.be/gvJsxezsV4A
 
 ## Screenshot:
 ### Here is the screenshot of the program:
